@@ -15,7 +15,13 @@
       ]
     },
     "then": {
-      "effect": "deny"
+      "effect": "append",
+      "details": [
+        {
+          "field": "[concat('tags[', parameters('tagName'), ']')]",
+          "value": "[parameters('tagValue')]"
+        }
+      ]
     }
   },
   "parameters": {
@@ -35,6 +41,5 @@
         "strongType": "tagValue"
       }
     }
-  },
-  "metadata": {}
+  }
 }
