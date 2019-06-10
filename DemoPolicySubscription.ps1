@@ -3,10 +3,15 @@
 # OK
 [String]$SubscriptionID = (Get-AzContext).Subscription.id
 [String]$Scope = "/subscriptions/$SubscriptionID/"
-[String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/AZ-ALLOWEDTAGVALUES-02-RULE.json"
-[String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
+
+#[String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/AZ-ALLOWEDTAGVALUES-02-RULE.json"
+#[String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
+
+[String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-RULE.json"
+[String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
+
 [String]$PolicyName = "AllowedTagValues4UpdatePolicy"
-[String]$PolicyDisplayName = "Policy $PolicyName"
+[String]$PolicyDisplayName = "$PolicyName"
 [String]$PolicyMetaData = '{"Category":"Compliance"}'
 $definition = New-AzPolicyDefinition -Name $PolicyName `
     -DisplayName $PolicyDisplayName `
@@ -16,6 +21,22 @@ $definition = New-AzPolicyDefinition -Name $PolicyName `
     -Subscription $SubscriptionID `
     -Mode All 
     $definition
+exit
+
+[String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-RULE.json"
+[String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
+[String]$PolicyName = "AllowedTagValues4UpdatePolicy"
+[String]$PolicyDisplayName = "$PolicyName"
+$definition = New-AzPolicyDefinition -Name $PolicyName `
+    -DisplayName $PolicyDisplayName `
+    -Policy $PolicyDefinitionFileURI `
+    -Parameter $PolicyParameterFileURI `
+    -Metadata $PolicyMetaData `
+    -ManagementGroupName $ManagementgroupName `
+    -Mode All 
+$definition
+
+
 exit
 #
 # Demo en Powershell Assignation Policy
