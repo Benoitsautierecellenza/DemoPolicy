@@ -3,13 +3,8 @@
 # OK
 [String]$SubscriptionID = (Get-AzContext).Subscription.id
 [String]$Scope = "/subscriptions/$SubscriptionID/"
-
-#[String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/AZ-ALLOWEDTAGVALUES-02-RULE.json"
-#[String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
-
 [String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-RULE.json"
 [String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
-
 [String]$PolicyName = "AllowedTagValues4UpdatePolicy"
 [String]$PolicyDisplayName = "$PolicyName"
 [String]$PolicyMetaData = '{"Category":"Compliance"}'
@@ -20,24 +15,11 @@ $definition = New-AzPolicyDefinition -Name $PolicyName `
     -Metadata $PolicyMetaData `
     -Subscription $SubscriptionID `
     -Mode All 
-    $definition
-exit
-
-[String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-RULE.json"
-[String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
-[String]$PolicyName = "AllowedTagValues4UpdatePolicy"
-[String]$PolicyDisplayName = "$PolicyName"
-$definition = New-AzPolicyDefinition -Name $PolicyName `
-    -DisplayName $PolicyDisplayName `
-    -Policy $PolicyDefinitionFileURI `
-    -Parameter $PolicyParameterFileURI `
-    -Metadata $PolicyMetaData `
-    -ManagementGroupName $ManagementgroupName `
-    -Mode All 
 $definition
-
-
-exit
+#
+# SHow Azure Policy list at Subscription level
+#
+Get-AzPolicyDefinition -SubscriptionId $SubscriptionID -Custom
 #
 # Demo en Powershell Assignation Policy
 #

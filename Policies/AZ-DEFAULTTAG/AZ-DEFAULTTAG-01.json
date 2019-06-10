@@ -1,0 +1,40 @@
+{
+  "mode": "Indexed",
+      "policyRule": {
+         "if": {
+             "allOf": [
+                {
+                    "field": "[concat('tags[', parameters('tagName'), ']')]",
+                    "exists": "false"
+                },
+                {
+                    "field": "type",
+                    "equals": "Microsoft.Compute/virtualMachines"
+                }
+             ]            
+         },
+         "then": {
+            "effect": "append",
+            "details": [
+               {
+                  "field": "[concat('tags[', parameters('tagName'), ']')]",
+                  "value": "[parameters('tagValue')]"
+               }
+            ]
+         }
+      },
+      "parameters": {
+         "tagName": {
+            "type": "String",
+            "metadata": {
+               "description": "Name of the tag"
+            }
+         },
+         "tagValue": {
+            "type": "String",
+            "metadata": {
+               "description": "Default value for the tag"
+            }
+        }
+    }
+}
