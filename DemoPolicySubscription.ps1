@@ -3,8 +3,8 @@
 # OK
 [String]$SubscriptionID = (Get-AzContext).Subscription.id
 [String]$Scope = "/subscriptions/$SubscriptionID/"
-[String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-RULE.json"
-[String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/Policies/AZ-ALLOWEDTAGVALUES/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
+[String]$PolicyDefinitionFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/AZ-ALLOWEDTAGVALUES-02-RULE.json"
+[String]$PolicyParameterFileURI = "https://raw.githubusercontent.com/Benoitsautierecellenza/DemoPolicy/master/AZ-ALLOWEDTAGVALUES-02-PARAMETERS.json"
 [String]$PolicyName = "AllowedTagValues4UpdatePolicy"
 [String]$PolicyDisplayName = "Policy $PolicyName"
 [String]$PolicyMetaData = '{"Category":"Compliance"}'
