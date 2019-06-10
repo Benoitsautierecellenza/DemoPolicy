@@ -18,7 +18,7 @@
       "details": [
       {
          "field": "[concat('tags[', parameters('UpdatePolicyTagName'), ']')]",
-         "value": "[parameters('tagValue')]"
+         "value": "[parameters('DefaultTagValue')]"
       }
       ]
    }
