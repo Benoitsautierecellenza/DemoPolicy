@@ -9,7 +9,7 @@
         {
           "not": {
             "field": "[concat('tags.',parameters('tagName'))]",
-            "equals": "[parameters('tagValue')]"
+            "exists": "false"
           }
         }
       ]
