@@ -1,0 +1,10 @@
+{
+  "UpdatePolicyTagName": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Tag name to enforce values",
+      "description": "Tag name"
+    }
+  }
+}
+    
