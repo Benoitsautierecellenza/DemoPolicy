@@ -1,2 +1,0 @@
-    # Get the resources in your resource group that are non-compliant to the policy assignment
-Get-AzPolicyState -ResourceGroupName $rg.ResourceGroupName -PolicyAssignmentName 'audit-vm-manageddisks' -Filter 'IsCompliant eq false'
